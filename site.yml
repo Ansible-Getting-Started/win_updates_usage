@@ -1,5 +1,5 @@
 ---
-- name:
+- name: Run Updates on Terminal Servers then wait 7 min
   hosts: terminalservers
   connection: winrm
   vars:
@@ -18,7 +18,7 @@
     reboot: yes
     reboot_timeout: 420
 
-- name:
+- name: Run Updates on App Servers and wait 10 min
   hosts: appservers
   connection: winrm
   vars:
@@ -32,9 +32,9 @@
         - SecurityUpdates
         - Updates
     reboot: yes
-    reboot_timeout:
+    reboot_timeout: 600
 
-- name:
+- name: Run Updates on Directory Servers then wait 15 min
   hosts: directoryservers
   connection: winrm
   vars:
