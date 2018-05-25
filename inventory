@@ -1,3 +1,7 @@
+[all:vars]
+ansible_connection: winrm
+ansible_ssh_user: administrator
+ansible_ssh_pass: This-Should-Be-a-Password!
 
 [terminalservers]
 rocket.milano.local
