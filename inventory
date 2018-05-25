@@ -1,0 +1,11 @@
+[terminalservers]
+rocket.milano.local
+groot.milano.local
+
+[appservers]
+drax.milano.local
+mantis.milano.local
+
+[directoryservers]
+peter.milano.local
+gamora.milano.local

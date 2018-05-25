@@ -1,0 +1,51 @@
+---
+- name:
+  hosts: terminalservers
+  connection: winrm
+  vars:
+    ansible_user: administrator@milano.local
+    ansible_password: This-Should-Be-a-Password!
+  tasks:
+    win_updates:
+      category_names:
+        - Application
+        - CriticalUpdates
+        - DefinitionUpdates
+        - SecurityUpdates
+        - Updates
+      whitelist:
+        - KB4093120
+    reboot: yes
+    reboot_timeout: 420
+
+- name:
+  hosts: appservers
+  connection: winrm
+  vars:
+    ansible_user: administrator@milano.local
+    ansible_password: This-Should-Be-a-Password!
+  tasks:
+    win_updates:
+      category_names:
+        - CriticalUpdates
+        - DefinitionUpdates
+        - SecurityUpdates
+        - Updates
+    reboot: yes
+    reboot_timeout:
+
+- name:
+  hosts: directoryservers
+  connection: winrm
+  vars:
+    ansible_user: administrator@milano.local
+    ansible_password: This-Should-Be-a-Password!
+  tasks:
+    win_updates:
+      category_names:
+        - CriticalUpdates
+        - SecurityUpdates
+      blacklist:
+        - Windows Malicious Software Removal Tool for Windows
+    reboot: yes
+    reboot_timeout: 900
